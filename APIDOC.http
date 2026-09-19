@@ -4,11 +4,19 @@ POST http://127.0.0.1:8000/api/auth/register/
 Content-Type: application/json
 
 {
-  "username": "sajitha",
-    "email": "sajitha@gmail.com",
-    "phone": "9876543210",
+  "username": "anu",
+    "email": "anu@gmail.com",
+    "phone": "9876543211",
     "password":"password11"  
 }
+
+
+# {
+#   "username": "sajitha",
+#     "email": "sajitha@gmail.com",
+#     "phone": "9876543210",
+#     "password":"password11"  
+# }
 
 #Login
 
@@ -22,7 +30,8 @@ Content-Type: application/json
 
 }
 
-
+#sajitha:29bc9e57699eb7611d2cce51c2abffb0a8b6b272
+#anu:4ac11ac13763e18dd01ff5fa94df45e72e3413dc
 
 #logout
 
@@ -37,3 +46,53 @@ Authorization: TOKEN a529d91414fd687d628d4f5694797aa153012bcf
 GET http://127.0.0.1:8000/api/auth/info/
 Accept: application/json
 Authorization: TOKEN 29bc9e57699eb7611d2cce51c2abffb0a8b6b272
+
+
+#Profile
+
+###
+GET http://127.0.0.1:8000/api/profile/2/
+Accept: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+###
+PATCH http://127.0.0.1:8000/api/profile/2/
+Content-Type: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+{
+  "full_name": "ANU K S"
+}
+
+#ADDRESS
+
+###
+GET http://127.0.0.1:8000/api/address/
+Accept: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+###
+POST http://127.0.0.1:8000/api/address/
+Content-Type: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+{
+    "address_line": "12 MG Road",
+    "city": "Thrissur",
+    "state": "Kerala",
+    "pincode": "680001"
+}
+
+
+###
+PATCH http://127.0.0.1:8000/api/address/1/
+Content-Type: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+{
+    "address_line": "12 MR Road "
+    
+}
+
+
+

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework.generics import CreateAPIView,ListAPIView,RetrieveAPIView,RetrieveUpdateAPIView,ListCreateAPIView,RetrieveUpdateDestroyAPIView
-from api.serializers import UserSerializer,AddressSerializer,UserProfileserializer
+from api.serializers import UserSerializer,AddressSerializer,UserProfileserializer,AdminSerializer
 from rest_framework.views import APIView
 from rest_framework import permissions,authentication
 from rest_framework.response import Response
@@ -9,6 +9,9 @@ from api.permissions import OwnerOnly
 # Create your views here.
 class RegisterView(CreateAPIView):
     serializer_class=UserSerializer
+
+class AdminUser(CreateAPIView):
+    serializer_class=AdminSerializer
 
 class LogoutView(APIView):
     authentication_classes=[authentication.TokenAuthentication]

@@ -10,6 +10,17 @@ Content-Type: application/json
     "password":"password11"  
 }
 
+#ADMIN
+###
+POST http://127.0.0.1:8000/api/admin/create/
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin",
+    "email": "admin@gmail.com",
+    "phone": "9876543215"
+}
 
 # {
 #   "username": "sajitha",
@@ -25,13 +36,15 @@ POST http://127.0.0.1:8000/api/auth/login/
 Content-Type: application/json
 
 {
-    "username": "sajitha",
-    "password":"password11"  
+   
+    "username": "admin",
+    "password": "admin" 
 
 }
 
 #sajitha:29bc9e57699eb7611d2cce51c2abffb0a8b6b272
 #anu:4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+#admin:4619432c382c6e3401f01ca263f227382e75ac99
 
 #logout
 
@@ -94,5 +107,39 @@ Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
     
 }
 
+#CATEGORY
 
+###
+GET http://127.0.0.1:8000/api/categories/
+Accept: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+###
+POST http://127.0.0.1:8000/api/categories/
+Content-Type: application/json
+Authorization: TOKEN 4619432c382c6e3401f01ca263f227382e75ac99
+
+{
+    "name": "Men's Shoes"
+}
+
+###
+GET http://127.0.0.1:8000/api/categories/
+Accept: application/json
+Authorization: TOKEN 4ac11ac13763e18dd01ff5fa94df45e72e3413dc
+
+
+###
+PUT http://127.0.0.1:8000/api/categories/1/
+Content-Type: application/json
+Authorization: TOKEN 4619432c382c6e3401f01ca263f227382e75ac99
+
+{
+    "name": "Men's Shoes"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/categories/1/
+Accept: application/json
+Authorization: TOKEN 4619432c382c6e3401f01ca263f227382e75ac99
 

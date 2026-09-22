@@ -49,5 +49,3 @@ post_save.connect(create_profile,User)
 
 
 
-
-
